@@ -3,7 +3,7 @@
   "displayName": "Selected Lines Reference",
   "description": "Copy the active file path and selected line range in a compact text format.",
   "version": "0.0.1",
-  "publisher": "your-publisher-name",
+  "publisher": "anilzeybek",
   "engines": {
     "vscode": "^1.85.0"
   },
