@@ -2,7 +2,7 @@
   "name": "selected-lines-reference",
   "displayName": "Selected Lines Reference",
   "description": "Copy the active file path and selected line range in a compact text format.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "anilzeybek",
   "engines": {
     "vscode": "^1.85.0"
@@ -19,14 +19,22 @@
     "commands": [
       {
         "command": "selectedLinesReference.copy",
-        "title": "Copy Selected Lines Reference",
+        "title": "Copy File Path and Selected Line Range",
         "category": "Selected Lines Reference"
       }
     ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "selectedLinesReference.copy",
+          "when": "editorTextFocus"
+        }
+      ]
+    },
     "keybindings": [
       {
         "command": "selectedLinesReference.copy",
-        "key": "ctrl+shift+alt+c",
+        "key": "ctrl+shift+alt+meta+c",
         "mac": "ctrl+shift+alt+cmd+c",
         "when": "editorTextFocus"
       }

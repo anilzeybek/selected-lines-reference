@@ -17,13 +17,13 @@ extensions/proto/Cargo.toml:6
 Select code in an editor and run:
 
 ```text
-Selected Lines Reference: Copy Selected Lines Reference
+Selected Lines Reference: Copy File Path and Selected Line Range
 ```
 
 Default shortcuts:
 
 - macOS: `Ctrl+Shift+Alt+Cmd+C`
-- Windows/Linux: `Ctrl+Shift+Alt+C`
+- Windows/Linux: `Ctrl+Shift+Alt+Meta+C`
 
 ## Development
 
