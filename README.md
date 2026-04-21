@@ -1,15 +1,15 @@
 # Selected Lines Reference
 
-Copy the active file path and selected line range in this format:
+Copy the active workspace-relative file path and selected line range in this format:
 
 ```text
-example.py: /path/to/workspace/src/example.py (lines 1537-1550)
+extensions/proto/Cargo.toml:6-13
 ```
 
 For a single line:
 
 ```text
-example.py: /path/to/workspace/src/example.py (line 1537)
+extensions/proto/Cargo.toml:6
 ```
 
 ## Usage
@@ -22,19 +22,8 @@ Selected Lines Reference: Copy Selected Lines Reference
 
 Default shortcuts:
 
-- macOS: `Cmd+Alt+C`
-- Windows/Linux: `Ctrl+Alt+C`
-
-## Settings
-
-```json
-{
-  "selectedLinesReference.pathStyle": "absolute",
-  "selectedLinesReference.includeFileNamePrefix": true
-}
-```
-
-Set `selectedLinesReference.pathStyle` to `relative` if you prefer workspace-relative paths.
+- macOS: `Ctrl+Shift+Alt+Cmd+C`
+- Windows/Linux: `Ctrl+Shift+Alt+C`
 
 ## Development
 

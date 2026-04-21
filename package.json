@@ -2,7 +2,7 @@
   "name": "selected-lines-reference",
   "displayName": "Selected Lines Reference",
   "description": "Copy the active file path and selected line range in a compact text format.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "anilzeybek",
   "engines": {
     "vscode": "^1.85.0"
@@ -26,30 +26,11 @@
     "keybindings": [
       {
         "command": "selectedLinesReference.copy",
-        "key": "ctrl+alt+c",
-        "mac": "cmd+alt+c",
+        "key": "ctrl+shift+alt+c",
+        "mac": "ctrl+shift+alt+cmd+c",
         "when": "editorTextFocus"
       }
-    ],
-    "configuration": {
-      "title": "Selected Lines Reference",
-      "properties": {
-        "selectedLinesReference.pathStyle": {
-          "type": "string",
-          "enum": [
-            "absolute",
-            "relative"
-          ],
-          "default": "absolute",
-          "description": "Whether to copy the absolute file path or the workspace-relative path."
-        },
-        "selectedLinesReference.includeFileNamePrefix": {
-          "type": "boolean",
-          "default": true,
-          "description": "Prefix the copied reference with the base file name."
-        }
-      }
-    }
+    ]
   },
   "scripts": {
     "package": "vsce package",

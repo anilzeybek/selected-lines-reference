@@ -1,4 +1,3 @@
-const path = require("path");
 const vscode = require("vscode");
 
 function activate(context) {
@@ -19,23 +18,14 @@ function activate(context) {
         return;
       }
 
-      const config = vscode.workspace.getConfiguration("selectedLinesReference");
-      const filePath = getDisplayPath(
-        document.uri,
-        config.get("pathStyle", "absolute")
-      );
-      const fileName = path.basename(document.uri.fsPath);
+      const filePath = vscode.workspace.asRelativePath(document.uri, false);
       const selection = editor.selection;
       const range = getSelectedLineRange(selection);
-      const lineLabel =
+      const lineReference =
         range.start === range.end
-          ? `line ${range.start}`
-          : `lines ${range.start}-${range.end}`;
-
-      const includeFileNamePrefix = config.get("includeFileNamePrefix", true);
-      const reference = includeFileNamePrefix
-        ? `${fileName}: ${filePath} (${lineLabel})`
-        : `${filePath} (${lineLabel})`;
+          ? `${range.start}`
+          : `${range.start}-${range.end}`;
+      const reference = `${filePath}:${lineReference}`;
 
       await vscode.env.clipboard.writeText(reference);
       vscode.window.setStatusBarMessage(`Copied: ${reference}`, 3500);
@@ -43,14 +33,6 @@ function activate(context) {
   );
 
   context.subscriptions.push(disposable);
-}
-
-function getDisplayPath(uri, pathStyle) {
-  if (pathStyle === "relative") {
-    return vscode.workspace.asRelativePath(uri, false);
-  }
-
-  return uri.fsPath;
 }
 
 function getSelectedLineRange(selection) {
